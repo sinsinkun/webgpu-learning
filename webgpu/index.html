@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>WebGPU Test</title>
+  <script defer type="module" src="/webgpu/index.js" ></script>
+</head>
+
+<style>
+  * {
+    padding: 0;
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  body {
+    background-color: rgb(49, 53, 58);
+    color: white;
+    text-align: center;
+  }
+  .container {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin-bottom: 24px;
+  }
+  canvas {
+    border: 1px solid black;
+    margin: auto;
+  }
+  .panel {
+    min-width: 512px;
+    margin: auto;
+  }
+  .log-container {
+    height: 600px;
+    overflow-y: scroll;
+    border: 1px solid black;
+    text-align: left;
+    scrollbar-width: thin;
+    scrollbar-color: #fff #666;
+  }
+  .log-container ul {
+    list-style: none;
+  }
+  button {
+    margin: 8px;
+    padding: 4px 12px;
+    border: none;
+    border-radius: 4px;
+  }
+  button:hover {
+    cursor: pointer;
+    background-color: rgb(213, 232, 240);
+  }
+  button:active {
+    background-color: rgb(173, 229, 252);
+  }
+
+  @media (max-width: 1028px) {
+    .container {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+
+<body>
+  <h1>WebGPU Canvas</h1>
+  <br />
+  <div class="container">
+    <canvas id="canvas" width="512" height="512"></canvas>
+    <div class="panel">
+      <button id="btn-frame+">Frame+</button>
+      <button id="btn-auto">Auto</button>
+      <div class="log-container">
+        <ul id="log">
+        </ul>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
