@@ -2,6 +2,7 @@
   "name": "bun-playground",
   "module": "index.ts",
   "type": "module",
+  "homepage": "/webgpu-learning",
   "devDependencies": {
     "@types/bun": "latest"
   },
