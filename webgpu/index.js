@@ -7,6 +7,8 @@ const gridShader = await fetch('/webgpu-learning/webgpu/grid.wgsl').then((v) => 
 const computeShader = await fetch('/webgpu-learning/webgpu/compute.wgsl').then((v) => v.text());
 function log(msg) {
   document.getElementById("log").innerHTML += `<li>${(new Date()).toLocaleTimeString()}: ${msg}</li>`;
+  const scrollable = document.querySelector(".log-container");
+  scrollable.scrollTo(0, scrollable.scrollHeight);
 }
 
 /**
@@ -301,7 +303,7 @@ class Renderer {
         }]
       }),
     ];
-    log("Created grid");
+    log("Initialized grid properties");
   }
   updateGrid() {
     const encoder = this.device.createCommandEncoder();

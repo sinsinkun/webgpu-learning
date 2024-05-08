@@ -29,11 +29,14 @@
     margin: auto;
   }
   .panel {
-    min-width: 512px;
+    width: 512px;
     margin: auto;
   }
+  .panel h2,h3,p {
+    text-align: left;
+  }
   .log-container {
-    height: 600px;
+    height: 300px;
     overflow-y: scroll;
     border: 1px solid black;
     text-align: left;
@@ -70,6 +73,19 @@
   <div class="container">
     <canvas id="canvas" width="512" height="512"></canvas>
     <div class="panel">
+      <h3>Details:</h3>
+      <p>
+        the canvas is drawn on using the new WebGPU API, which will be overtaking the old
+        WebGL API that is currently used for most web related rendering tasks. WebGPU also brings with it
+        a new shader language, which should be easier to work with than the old GLSL standard. Beyond simply 
+        rendering using a new API standard, this project is also taking advantage of the new compute shaders 
+        available on WebGPU to calculate each cells' activation in parallel with each other.
+      </p>
+      <br />
+      <p>
+        Note: WebGPU is not supported on Safari browsers as of this writing, and needs to be explicitly enabled on firefox.
+        Please refer to the logs below for details.
+      </p>
       <button id="btn-frame+">Frame+</button>
       <button id="btn-auto">Auto</button>
       <div class="log-container">
