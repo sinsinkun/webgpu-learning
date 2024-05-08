@@ -1,8 +1,6 @@
-const readmef = Bun.file("README.md");
-const readme = await readmef.text();
-
 console.log("Starting server on port 3001");
-const server = Bun.serve({
+
+Bun.serve({
   port: 3001,
   development: true,
   fetch(req: Request): Response | Promise<Response> {
@@ -19,17 +17,8 @@ const server = Bun.serve({
         () => new Response("Err: File not found", { status:404 })
       );
     }
-    else if (url.pathname === '/webgpu') return new Response(Bun.file("./webgpu/index.html"));
 
-    // test routes
-    else if (url.pathname === '/readme') return new Response(readme, { status:302, statusText:'MOCK' });
-    else if (url.pathname === '/error') throw new Error("Hit server error");
-    else if (url.pathname === '/stop') {
-      server.stop();
-      return new Response('End of life');
-    }
-
-    // catch all resposne
-    return new Response("Hello World!");
+    // catch all response
+    return new Response(Bun.file("./webgpu/index.html"));
   },
-})
+});

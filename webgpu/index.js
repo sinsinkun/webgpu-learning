@@ -2,7 +2,7 @@
 const button = document.getElementById("btn-frame+");
 const button2 = document.getElementById("btn-auto");
 
-const GRID_SIZE = 16;
+const GRID_SIZE = 32;
 const gridShader = await fetch('/webgpu/grid.wgsl').then((v) => v.text());
 const computeShader = await fetch('/webgpu/compute.wgsl').then((v) => v.text());
 function log(msg) {
