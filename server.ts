@@ -17,8 +17,9 @@ Bun.serve({
         () => new Response("Err: File not found", { status:404 })
       );
     }
+    if (url.pathname === '/') return new Response(Bun.file("./webgpu/index.html"));
 
     // catch all response
-    return new Response(Bun.file("./webgpu/index.html"));
+    return new Response("Page not found", { status:404 });
   },
 });
